@@ -6,5 +6,5 @@ tile_puzzle::tile_puzzle(int dimension, int* size){
 
 }
 void tile_puzzle::add_tile(tile newtile){
-	//this.tile_set.push_back(newtile);
+	this->tile_set.push_back(newtile);
 }
