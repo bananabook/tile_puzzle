@@ -1,4 +1,0 @@
-class puzzle{
-	public:
-	puzzle();
-};
