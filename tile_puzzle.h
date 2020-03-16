@@ -2,12 +2,16 @@
 class tile{
 	public:
 	bool* shape;
-	tile(int dimension, int* size, bool* shape);
+	tile(int dimension, int* size, bool* shape){};
 };
 
-class puzzle{
+class tile_puzzle{
 	public:
+	int dimension;
+	int* size;
 	bool* shape;
-	tile* tile_set;
-	puzzle(int dimension, int* size);
+	std::list<tile> tile_set;
+
+	tile_puzzle(int dimension, int* size);
+	void add_tile(tile newtile);
 };
