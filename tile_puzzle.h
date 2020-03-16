@@ -1,3 +1,4 @@
+#include <list>
 class tile{
 	public:
 	bool* shape;
@@ -6,6 +7,7 @@ class tile{
 
 class puzzle{
 	public:
+	bool* shape;
 	tile* tile_set;
 	puzzle(int dimension, int* size);
 };

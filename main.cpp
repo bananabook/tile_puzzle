@@ -1,11 +1,11 @@
 #include <iostream>
-#include "puzzle.h"
+#include "tile_puzzle.h"
 int main(){
 	int dimension=2;
 	int* size=new int[dimension];
 	size[0]=1;
 	size[1]=4;
-	puzzle obj(dimension, size);
+	puzzle mypuzzle(dimension, size);
 	delete size;
 	return 0;
 }
