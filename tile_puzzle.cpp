@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include "tile_puzzle.h"
+#include <algorithm> //std::max()
 tile_puzzle::tile_puzzle(int dimension, int* size){
 	this->dimension=dimension;
 	this->size=size;
@@ -10,9 +11,26 @@ void tile_puzzle::add_tile(tile newtile){
 	this->tile_set.push_back(newtile);
 }
 
-tile::tile(int dimension, int* size){
-	this->size=size;
+tile::tile(int dimension){
+	this->size=new int[2];
+	this->size[0]=4;
+	this->size[1]=4;
 	this->dimension=dimension;
+}
+void tile::update_size(){
+	int* max=new int[this->dimension];
+	std::list<block>::iterator it;
+	for (it=this->block_list.begin(); it!=this->block_list.end(); it++){
+		for (int j=0; j<it->dimension; j++){
+			max[j] = std::max(max[j], it->coordinates[j]);
+		}
+	}
+
+	for (int i=0; i<this->dimension; i++){
+		this->size[i]=max[i]+1;
+	}
+	delete max;
+
 }
 void tile::print2D(){
 	if(this->dimension!=2){
@@ -46,6 +64,7 @@ void tile::print2D(){
 }
 void tile::add_block(block block_to_add){
 	this->block_list.push_back(block_to_add);
+	this->update_size();
 }
 
 block::block(int dimension, int* coordinates){

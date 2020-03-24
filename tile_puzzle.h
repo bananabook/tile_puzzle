@@ -11,7 +11,8 @@ class tile{
 	std::list<block> block_list;
 	int* size;
 	int dimension;
-	tile(int dimension, int* size);
+	tile(int dimension);
+	void update_size();
 	void add_block(block block_to_add);
 	void print2D();
 };

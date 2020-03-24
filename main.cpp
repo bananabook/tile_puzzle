@@ -8,7 +8,7 @@ int main(){
 	
 	tile_puzzle mypuzzle(dimension, size);
 
-	tile tile_a(dimension, size);
+	tile tile_a(dimension);
 	int* coordinates= new int[dimension];
 
 	coordinates[0]=0;
@@ -16,8 +16,8 @@ int main(){
 	block block_1(dimension, coordinates);
 	tile_a.add_block(block_1);
 
-	coordinates[0]=0;
-	coordinates[1]=1;
+	coordinates[0]=2;
+	coordinates[1]=10;
 	block block_2(dimension, coordinates);
 	tile_a.add_block(block_2);
 

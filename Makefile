@@ -11,3 +11,5 @@ do:
 
 cl:
 	rm -f prog.out
+debug:
+	g++ -d main.cpp tile_puzzle.cpp
