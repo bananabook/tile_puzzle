@@ -1,8 +1,19 @@
 #include <list>
+class block{
+	public:
+	int* coordinates;
+	int dimension;
+	block(int dimension, int* coordinates);
+};
+
 class tile{
 	public:
-	bool* shape;
-	tile(int dimension, int* size, bool* shape){};
+	std::list<block> block_list;
+	int* size;
+	int dimension;
+	tile(int dimension, int* size);
+	void add_block(block block_to_add);
+	void print2D();
 };
 
 class tile_puzzle{

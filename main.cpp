@@ -8,18 +8,24 @@ int main(){
 	
 	tile_puzzle mypuzzle(dimension, size);
 
-	bool shape_a[4*4]={
-		1, 0, 0, 0,
-		1, 0, 0, 0,
-		1, 0, 0, 0,
-		1, 1, 1, 1
-	};
-	tile tile_a(dimension, size, shape_a);
+	tile tile_a(dimension, size);
+	int* coordinates= new int[dimension];
+
+	coordinates[0]=0;
+	coordinates[1]=0;
+	block block_1(dimension, coordinates);
+	tile_a.add_block(block_1);
+
+	coordinates[0]=0;
+	coordinates[1]=1;
+	block block_2(dimension, coordinates);
+	tile_a.add_block(block_2);
+
+	tile_a.print2D();
 
 
 
-
-
+	delete coordinates;
 	delete size;
 	return 0;
 }
