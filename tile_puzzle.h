@@ -5,7 +5,6 @@ class block{
 	int dimension;
 	block(int dimension, int* coordinates);
 };
-
 class tile{
 	public:
 	std::list<block> block_list;
@@ -14,9 +13,9 @@ class tile{
 	tile(int dimension);
 	void update_size();
 	void add_block(block block_to_add);
+	void add_block(int* block_to_add);
 	void print2D();
 };
-
 class tile_puzzle{
 	public:
 	int dimension;

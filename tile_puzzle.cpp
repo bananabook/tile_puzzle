@@ -12,9 +12,10 @@ void tile_puzzle::add_tile(tile newtile){
 }
 
 tile::tile(int dimension){
-	this->size=new int[2];
-	this->size[0]=4;
-	this->size[1]=4;
+	this->size=new int[dimension];
+	for (int i=0;i<dimension;i++){
+		this->size[i]=0;
+	}
 	this->dimension=dimension;
 }
 void tile::update_size(){
@@ -65,6 +66,11 @@ void tile::print2D(){
 void tile::add_block(block block_to_add){
 	this->block_list.push_back(block_to_add);
 	this->update_size();
+}
+
+void tile::add_block(int* block_to_add){
+	block newblock(this->dimension, block_to_add);
+	this->add_block(newblock);
 }
 
 block::block(int dimension, int* coordinates){

@@ -13,13 +13,11 @@ int main(){
 
 	coordinates[0]=0;
 	coordinates[1]=0;
-	block block_1(dimension, coordinates);
-	tile_a.add_block(block_1);
+	tile_a.add_block(coordinates);
 
 	coordinates[0]=2;
 	coordinates[1]=10;
-	block block_2(dimension, coordinates);
-	tile_a.add_block(block_2);
+	tile_a.add_block(coordinates);
 
 	tile_a.print2D();
 
