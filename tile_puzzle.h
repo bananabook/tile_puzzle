@@ -1,3 +1,5 @@
+#ifndef TILE_PUZZLE_H
+#define TILE_PUZZLE_H
 #include <list>
 class block{
 	public:
@@ -26,3 +28,4 @@ class tile_puzzle{
 	tile_puzzle(int dimension, int* size);
 	void add_tile(tile newtile);
 };
+#endif
