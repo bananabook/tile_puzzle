@@ -13,6 +13,8 @@ void example(int what){
 
 			tile_puzzle mypuzzle(dimension, size);
 
+			delete size;
+
 			tile tile_a(dimension);
 			int* coordinates= new int[dimension];
 
@@ -20,16 +22,23 @@ void example(int what){
 			coordinates[1]=0;
 			tile_a.add_block(coordinates);
 
-			coordinates[0]=2;
-			coordinates[1]=10;
+			coordinates[0]=0;
+			coordinates[1]=1;
 			tile_a.add_block(coordinates);
+
+			coordinates[0]=0;
+			coordinates[1]=2;
+			tile_a.add_block(coordinates);
+
+			coordinates[0]=1;
+			coordinates[1]=1;
+			tile_a.add_block(coordinates);
+			delete coordinates;
 
 			tile_a.print2D();
 
+			mypuzzle.add_tile(tile_a);
 
-
-			delete coordinates;
-			delete size;
 		break;
 	};
 }

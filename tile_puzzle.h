@@ -22,10 +22,11 @@ class tile_puzzle{
 	public:
 	int dimension;
 	int* size;
-	bool* shape;
+	bool*** shape;
 	std::list<tile> tile_set;
 
 	tile_puzzle(int dimension, int* size);
 	void add_tile(tile newtile);
+	bool check_feasible();
 };
 #endif

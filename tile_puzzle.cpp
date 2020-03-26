@@ -4,11 +4,51 @@
 #include <algorithm> //std::max()
 tile_puzzle::tile_puzzle(int dimension, int* size){
 	this->dimension=dimension;
-	this->size=size;
+
+	this->size=new int[dimension];
+	for (int i=0;i<dimension;i++){
+		this->size[i]=0;
+	}
+	for (int i=0;i<this->size[1];i++){
+		for (int j=0;j<this->size[2];j++){
+			for (int k=0;k<this->size[3];k++){
+				this->shape[i][j][k]=true;
+			}
+		}
+	}
+
 
 }
 void tile_puzzle::add_tile(tile newtile){
 	this->tile_set.push_back(newtile);
+}
+bool tile_puzzle::check_feasible(){
+	std::list<tile>::iterator iter_tile;
+	int number_of_all_blocks=0;
+	for(iter_tile=this->tile_set.begin(); iter_tile != this->tile_set.end(); iter_tile++){
+		for (int i=0;i<this->dimension;i++){
+			if(this->size[i]<iter_tile->size[i]){
+				return false;
+			}
+		}
+		number_of_all_blocks+=iter_tile->block_list.size();
+	}
+
+	int number_of_spaces;
+	for (int i=0;i<this->size[1];i++){
+		for (int j=0;j<this->size[2];j++){
+			for (int k=0;k<this->size[3];k++){
+				if(this->shape[i][j][k]){
+					number_of_spaces++;
+				}
+			}
+		}
+	}
+	if(number_of_all_blocks > number_of_spaces){
+		return false;
+	}
+
+	return false;
 }
 
 tile::tile(int dimension){
