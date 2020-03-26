@@ -7,11 +7,14 @@ tile_puzzle::tile_puzzle(int dimension, int* size){
 
 	this->size=new int[dimension];
 	for (int i=0;i<dimension;i++){
-		this->size[i]=0;
+		this->size[i]=5;
 	}
-	for (int i=0;i<this->size[1];i++){
-		for (int j=0;j<this->size[2];j++){
-			for (int k=0;k<this->size[3];k++){
+	this->shape=new bool**[size[0]];
+	for (int i=0;i<this->size[0];i++){
+		this->shape[i]=new bool*[size[1]];
+		for (int j=0;j<this->size[1];j++){
+			this->shape[i][j]=new bool[size[2]];
+			for (int k=0;k<this->size[2];k++){
 				this->shape[i][j][k]=true;
 			}
 		}
@@ -22,22 +25,23 @@ tile_puzzle::tile_puzzle(int dimension, int* size){
 void tile_puzzle::add_tile(tile newtile){
 	this->tile_set.push_back(newtile);
 }
-bool tile_puzzle::check_feasible(){
+bool tile_puzzle::check_feasiblity(){
 	std::list<tile>::iterator iter_tile;
 	int number_of_all_blocks=0;
 	for(iter_tile=this->tile_set.begin(); iter_tile != this->tile_set.end(); iter_tile++){
 		for (int i=0;i<this->dimension;i++){
 			if(this->size[i]<iter_tile->size[i]){
+				std::cout<<"dimension "<<i<<" wrong."<<std::endl;
 				return false;
 			}
 		}
 		number_of_all_blocks+=iter_tile->block_list.size();
 	}
 
-	int number_of_spaces;
-	for (int i=0;i<this->size[1];i++){
-		for (int j=0;j<this->size[2];j++){
-			for (int k=0;k<this->size[3];k++){
+	int number_of_spaces=0;
+	for (int i=0;i<this->size[0];i++){
+		for (int j=0;j<this->size[1];j++){
+			for (int k=0;k<this->size[2];k++){
 				if(this->shape[i][j][k]){
 					number_of_spaces++;
 				}
@@ -48,7 +52,7 @@ bool tile_puzzle::check_feasible(){
 		return false;
 	}
 
-	return false;
+	return true;
 }
 
 tile::tile(int dimension){
@@ -74,9 +78,6 @@ void tile::update_size(){
 
 }
 void tile::print2D(){
-	if(this->dimension!=2){
-		std::cout<<"Tile has wrong dimension. Not 2D tile cannot be printed with print2D()."<<std::endl;
-	};
 	int** matrix=new int*[this->size[0]];
 	for (int i=0;i<this->size[0]; i++){
 		matrix[i]=new int[this->size[1]];
@@ -107,7 +108,6 @@ void tile::add_block(block block_to_add){
 	this->block_list.push_back(block_to_add);
 	this->update_size();
 }
-
 void tile::add_block(int* block_to_add){
 	block newblock(this->dimension, block_to_add);
 	this->add_block(newblock);

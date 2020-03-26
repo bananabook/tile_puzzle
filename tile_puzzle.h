@@ -27,6 +27,6 @@ class tile_puzzle{
 
 	tile_puzzle(int dimension, int* size);
 	void add_tile(tile newtile);
-	bool check_feasible();
+	bool check_feasiblity();
 };
 #endif

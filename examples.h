@@ -6,7 +6,7 @@
 void example(int what){
 	switch(what){
 		case 1:
-			int dimension=2;
+			int dimension=3;
 			int* size=new int[dimension];
 			size[0]=4;
 			size[1]=4;
@@ -38,6 +38,10 @@ void example(int what){
 			tile_a.print2D();
 
 			mypuzzle.add_tile(tile_a);
+			if(mypuzzle.check_feasiblity()){
+				std::cout<<"feasible"<<std::endl;
+			}
+
 
 		break;
 	};
