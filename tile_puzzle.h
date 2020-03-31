@@ -18,6 +18,7 @@ class tile{
 	void add_block(int* block_to_add);
 	void add_blocks(int** block_to_add, int number_of_blocks);
 	void print2D();
+	void clear_blocks();
 };
 class tile_puzzle{
 	public:
@@ -29,5 +30,7 @@ class tile_puzzle{
 	tile_puzzle(int dimension, int* size);
 	void add_tile(tile newtile);
 	bool check_feasiblity();
+
+	void print2D();
 };
 #endif

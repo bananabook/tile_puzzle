@@ -54,6 +54,13 @@ bool tile_puzzle::check_feasiblity(){
 
 	return true;
 }
+void tile_puzzle::print2D(){
+	std::list<tile>::iterator it;
+	for (it=this->tile_set.begin();it!=this->tile_set.end();it++){
+		it->print2D();
+		std::cout<<std::endl;
+	}
+}
 
 tile::tile(int dimension){
 	this->size=new int[dimension];
@@ -116,6 +123,9 @@ void tile::add_blocks(int** blocks_to_add, int number_of_blocks){
 	for (int i=0;i<number_of_blocks;i++){
 		this->add_block(blocks_to_add[i]);
 	}
+}
+void tile::clear_blocks(){
+	this->block_list.clear();
 }
 
 block::block(int dimension, int* coordinates){

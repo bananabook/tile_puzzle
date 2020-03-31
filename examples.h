@@ -66,13 +66,25 @@ void example(int what){
 			coord[4][0]=0;
 			coord[4][1]=3;
 
-			tile* my_tile;
-			//*my_tile=tile(2);
-			/*
-			tile_a.add_blocks(coord, 5);
-			tile_a.print2D();
-			*/
+			tile my_tile(2);
+			my_tile.add_blocks(coord, 5);
+
+
+			int dimension=2;
+			int* size=new int[dimension];
+			size[0]=4;
+			size[1]=4;
+
+			tile_puzzle my_puzzle(dimension, size);
+			my_puzzle.add_tile(my_tile);
+
+			my_tile.print2D();
+			my_puzzle.print2D();
+
+
+			delete size;
 			break;
+
 		}
 	};
 }
