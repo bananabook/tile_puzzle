@@ -112,6 +112,11 @@ void tile::add_block(int* block_to_add){
 	block newblock(this->dimension, block_to_add);
 	this->add_block(newblock);
 }
+void tile::add_blocks(int** blocks_to_add, int number_of_blocks){
+	for (int i=0;i<number_of_blocks;i++){
+		this->add_block(blocks_to_add[i]);
+	}
+}
 
 block::block(int dimension, int* coordinates){
 	this->dimension=dimension;

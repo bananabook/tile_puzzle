@@ -2,6 +2,7 @@
 #define EXAMPLE_H
 #include <iostream>
 #include "tile_puzzle.h"
+#include <typeinfo>
 
 void example(int what){
 	switch(what){
@@ -46,7 +47,31 @@ void example(int what){
 		}
 
 		case 2:{
+			int** coord=new int*[5];
+			for (int i=0;i<5;i++){
+				coord[i]=new int[2];
+			}
+			coord[0][0]=0;
+			coord[0][1]=0;
 
+			coord[1][0]=1;
+			coord[1][1]=1;
+
+			coord[2][0]=0;
+			coord[2][1]=1;
+
+			coord[3][0]=0;
+			coord[3][1]=2;
+
+			coord[4][0]=0;
+			coord[4][1]=3;
+
+			tile* my_tile;
+			//*my_tile=tile(2);
+			/*
+			tile_a.add_blocks(coord, 5);
+			tile_a.print2D();
+			*/
 			break;
 		}
 	};

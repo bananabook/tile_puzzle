@@ -2,6 +2,6 @@
 #include "tile_puzzle.h"
 #include "examples.h"
 int main(){
-	example(1);
+	example(2);
 	return 0;
 }

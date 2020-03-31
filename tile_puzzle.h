@@ -16,6 +16,7 @@ class tile{
 	void update_size();
 	void add_block(block block_to_add);
 	void add_block(int* block_to_add);
+	void add_blocks(int** block_to_add, int number_of_blocks);
 	void print2D();
 };
 class tile_puzzle{
